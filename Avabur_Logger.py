@@ -16,6 +16,7 @@ def main():
     CD = os.getenv('CDATA')
     CDB = os.getenv('CDATABASE')
     URL_LINK = os.getenv('SECRET_CODE')
+    SERV = os.getenv('SERV')
 
     # Initialize some variables
     timeshift = 5+(2/86400)
@@ -24,7 +25,7 @@ def main():
     myDate = now.strftime("%Y%m%d")
 
     # Start the Connection to the Google Sheet, Initialize the workbook/worksheet variables
-    sa = gspread.service_account('spag-service.json') # Put this into the .env file
+    sa = gspread.service_account(SERV) # Put this into the .env file
     ss = sa.open(WB)
     db = ss.worksheet(DB)
     cd = ss.worksheet(CD)
